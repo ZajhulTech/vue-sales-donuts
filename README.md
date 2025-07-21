@@ -1,56 +1,85 @@
-# Vue 3 + Vite
+# 💼 Aplicación Frontend – Vue.js
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Una aplicación desarrollada con **Vue 3** usando Vite, que consume una API REST protegida con **JWT**. Este frontend forma parte de un sistema de ventas, mostrando capacidades modernas de interfaz, autenticación y consumo de APIs.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+---
 
+## 📁 Estructura del Proyecto
 
+```
+/vue-code
+  └── src
+      ├── components          # Componentes reutilizables (Header, Footer, Sidebar, etc.)
+      ├── views               # Vistas principales (LoginView, SalesView)
+      ├── services            # Servicios de comunicación con API
+      ├── domain              # Lógica de dominio (auth, tokens, etc.)
+      ├── styles              # Variables y estilos globales
+```
 
+---
 
-🎤 Speech – ASP.NET Core Backend Description (English)
-In this project, I implemented a well-structured backend using ASP.NET Core, following a layered architecture with a clear separation of concerns.
+## 🚀 Tecnologías utilizadas
 
-The solution is organized as follows:
+- **Vue 3 + Vite**
+- **Axios**
+- **JavaScript**
+- **LocalStorage para manejo de sesión**
 
-WebApi/: Contains the main REST API endpoints using clean, RESTful controllers.
+---
 
-UserStories/: Implements the application logic or use cases, decoupled from the controllers and infrastructure.
+## 🛠️ Requisitos Previos
 
-interfaces/: Defines abstractions for services, user stories, and repositories, supporting dependency injection and unit testing.
+- [Node.js 18+](https://nodejs.org/)
 
-infrastructure/: Includes technical implementations such as EF Core repositories, authentication providers, and database contexts.
+---
 
-common/: Provides shared helpers, extensions, and constants.
+## ▶️ Ejecución del Proyecto
 
-Models/: Holds the domain entities, DTOs, and request/response models.
+1. Navega a la carpeta `vue-code`.
+2. Copia el archivo `.env.example` como `.env`:
 
-✅ Some of the key strengths of this backend are:
+```bash
+cp .env.example .env
+```
 
-A clean architecture approach where business logic is encapsulated in user stories, separate from data access and presentation.
+3. Edita `.env` y asegúrate de configurar correctamente la URL base de tu API.
 
-Use of interfaces like IMyUnitOfWork and ICatalogUserStory for loose coupling and testability.
+4. Ejecuta en terminal:
 
-Controllers such as ventasController and catalogController are well-defined and align with REST standards.
+```bash
+npm install
+npm run dev
+```
 
-Modular dependency injection is handled via RegisterServicesExtend.cs.
+Esto iniciará la app en: [http://localhost:55508](http://localhost:55508)
 
-The project includes support for JWT authentication, implemented using a custom token generator and handler (CustomTokenAuthenticationHandler, MyTokenGenerator).
+> ⚠️ Asegúrate de que la API esté disponible en la URL definida en `VITE_API_URL`.
 
-Exception handling is centralized using ApiExceptionFilterAttribute, improving maintainability and consistency of error responses.
+---
 
-Finally, the Unit of Work pattern is applied to manage transactions with Entity Framework Core, ensuring data consistency across multiple repositories.
+## ⚙️ Funcionalidades
 
-Overall, the solution is designed for maintainability, scalability, and testability — reflecting industry-standard practices in modern .NET development.
+- Pantalla de login con validación y autenticación vía JWT
+- Lista pública de ventas
+- Formulario para agregar venta (requiere token)
+- Gestión de token en `localStorage`
+- Manejo de errores y validación de formularios
+- Axios centralizado para llamadas HTTP usando `VITE_API_URL`
 
+---
 
+## 🐳 PLUS: Despliegue en Docker (Opcional)
 
+### Crear imagen:
+```bash
+docker build -t vue-sales-app .
+```
 
-✅ Resumen de patrones usados
-Categoría	Patrón
-Diseño	Repository, Unit of Work, DTO
-Diseño	Adapter, Interceptor
-Arquitectura	Clean Architecture (inspirada)
-Arquitectura	N-Tier (capa de control, dominio, datos)
-Arquitectura	Composition API (Vue 3)
-Buenas prácticas	Separation of Concerns, Validation Layer
+### Ejecutar contenedor:
+```bash
+docker run -p 55508:80 vue-sales-app
+```
 
+> Asegúrate de definir las variables de entorno o ajustar la URL de la API en producción.
+
+---
