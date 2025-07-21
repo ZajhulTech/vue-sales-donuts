@@ -1,0 +1,6 @@
+projectKey=krispy-vue-challenge
+serverUrl=http://192.168.0.17:9001
+serverVersion=25.6.0.109173
+dashboardUrl=http://192.168.0.17:9001/dashboard?id=krispy-vue-challenge
+ceTaskId=e396cade-c83e-4e9b-a378-ffe5ccace2ac
+ceTaskUrl=http://192.168.0.17:9001/api/ce/task?id=e396cade-c83e-4e9b-a378-ffe5ccace2ac

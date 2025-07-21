@@ -1,0 +1,1 @@
+D:\Lab\vue-netcore-test-project\vue-code\obj\Debug\vue-code.esproj.CoreCompileInputs.cache
